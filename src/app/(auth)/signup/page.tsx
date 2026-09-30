@@ -66,7 +66,7 @@ function SignupForm() {
 
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-neutral-900 mb-1.5">Create your account</h1>
-        <p className="text-sm text-neutral-500">Start building your AI support frontline — free for 14 days.</p>
+        <p className="text-sm text-neutral-500">Start with 200 free credits. No credit card required.</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -110,11 +110,6 @@ function SignupForm() {
         </Button>
       </form>
 
-      <p className="mt-4 text-center text-xs text-neutral-400">
-        By creating an account you agree to our{' '}
-        <Link href="/terms" className="underline hover:text-neutral-700">Terms</Link> and{' '}
-        <Link href="/privacy" className="underline hover:text-neutral-700">Privacy Policy</Link>
-      </p>
       <p className="mt-6 text-center text-sm text-neutral-500">
         Already have an account?{' '}
         <Link href="/login" className="font-medium text-[#4f46e5] hover:underline">Sign in</Link>
@@ -138,7 +133,7 @@ export default function SignupPage() {
           <span className="text-[15px] font-bold text-white tracking-tight">Support Genius AI</span>
         </Link>
         <div className="space-y-5">
-          {['Build your AI agent in minutes, not weeks', 'Handles 90%+ of conversations automatically', 'Voice + chat support out of the box', 'Real-time analytics and improvement'].map(item => (
+          {['200 free credits to start — no card needed', 'Every module included on every plan', 'Call analysis, follow-ups, and pre-call briefs', 'Unlimited team members on all plans'].map(item => (
             <div key={item} className="flex items-center gap-3">
               <div className="h-5 w-5 rounded-full bg-[#4f46e5]/20 flex items-center justify-center flex-shrink-0">
                 <CheckCircle className="h-3 w-3 text-[#4f46e5]" />

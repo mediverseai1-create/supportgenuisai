@@ -42,8 +42,8 @@ export default function HomePage() {
         </div>
 
         <div className="relative max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.18em] uppercase text-violet-700 mb-7 px-4 py-1.5 rounded-full border border-violet-200 bg-violet-50">
-            Conversation intelligence
+          <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.14em] uppercase text-violet-700 mb-7 px-4 py-1.5 rounded-full border border-violet-200 bg-violet-50">
+            The all-in-one Sales AI operating system for businesses
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight leading-[1.08] mb-7 text-[#0f0520]">
@@ -54,7 +54,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-lg text-[#0f0520]/65 max-w-2xl mx-auto leading-relaxed mb-10">
-            SupportGenius AI analyses every call your team has, extracts what was promised, what was objected to and what happens next, and writes the follow-up — so no account depends on anyone&apos;s memory.
+            SupportGenius AI analyses every call, extracts intent, objections, and commitments, then writes pre-call briefs, follow-ups and exactly what your team should do next — all from the transcript.
           </p>
 
           <div className="flex items-center justify-center gap-4 mb-8">
