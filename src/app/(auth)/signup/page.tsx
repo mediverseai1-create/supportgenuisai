@@ -66,7 +66,7 @@ function SignupForm() {
 
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-neutral-900 mb-1.5">Create your account</h1>
-        <p className="text-sm text-neutral-500">Start with 200 free credits. No credit card required.</p>
+        <p className="text-sm text-neutral-500">Start with 200 free credits.</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
