@@ -13,7 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Switch } from '@/components/ui/switch'
 import { Separator } from '@/components/ui/separator'
 import { Badge } from '@/components/ui/badge'
-import { Topbar } from '@/components/layout/topbar'
+import Topbar from '@/components/layout/topbar'
 import { PLANS } from '@/lib/utils'
 
 export default function SettingsPage() {

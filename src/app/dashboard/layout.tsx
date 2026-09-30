@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
-import { Sidebar } from '@/components/layout/sidebar'
+import Sidebar from '@/components/layout/sidebar'
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient()
@@ -30,7 +30,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   const org = (membership as any)?.organizations
 
   return (
-    <div className="flex h-screen overflow-hidden bg-neutral-50">
+    <div className="flex h-screen overflow-hidden bg-[#08080f]">
       <Sidebar
         orgName={org?.name || 'My Organization'}
         userName={profile?.full_name || user.email || 'User'}

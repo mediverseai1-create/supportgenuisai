@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f0f0f;
-  --brand: #4f46e5;
-  --brand-dark: #1a1a2e;
-  --muted: #f5f5f5;
-  --muted-foreground: #737373;
-  --border: #e5e5e5;
-  --ring: #4f46e5;
+  --background: #06060f;
+  --foreground: #ffffff;
+  --brand: #7c3aed;
+  --brand-light: #a78bfa;
+  --brand-dark: #06060f;
+  --muted: rgba(255,255,255,0.04);
+  --muted-foreground: rgba(255,255,255,0.4);
+  --border: rgba(255,255,255,0.07);
+  --ring: #7c3aed;
 }
 
 * {
@@ -32,11 +33,11 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d4;
+  background: rgba(124, 58, 237, 0.3);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a3a3a3;
+  background: rgba(124, 58, 237, 0.5);
 }
 
 /* Focus visible */

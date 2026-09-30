@@ -1,418 +1,451 @@
 import Link from 'next/link'
-import { ArrowRight, CheckCircle, Mic, Brain, Zap, Shield, BarChart3, Users, MessageSquare, PhoneCall, Star, ChevronRight, Globe, FileText, Headphones } from 'lucide-react'
+import { Shield, Users, Database, ChevronRight } from 'lucide-react'
 
-export default function LandingPage() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Nav */}
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-neutral-100 bg-white/95 backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-6 flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="h-8 w-8 rounded-lg bg-[#4f46e5] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" className="h-4.5 w-4.5" fill="none">
-                <rect x="3" y="4" width="12" height="2" rx="1" fill="white"/>
-                <rect x="3" y="9" width="9" height="2" rx="1" fill="white"/>
-                <rect x="3" y="14" width="6" height="2" rx="1" fill="white"/>
-                <circle cx="18" cy="16" r="4" fill="white"/>
-                <path d="M16.5 16l1 1 2-2" stroke="#4f46e5" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    <div className="min-h-screen bg-[#06060f] text-white antialiased">
+
+      {/* ── NAVIGATION ── */}
+      <header className="fixed top-0 inset-x-0 z-50 border-b border-white/[0.06] backdrop-blur-xl bg-[#06060f]/80">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0">
+            <div className="h-7 w-7 rounded-lg bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center shadow-lg shadow-purple-900/50">
+              <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4">
+                <path d="M4 5h8M4 9h6M13 14a3 3 0 100-6 3 3 0 000 6z" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M15.5 16.5l-1.5-1.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
             </div>
-            <span className="text-[15px] font-bold text-[#1a1a2e] tracking-tight">Support Genius AI</span>
+            <span className="text-[15px] font-semibold tracking-tight text-white">SupportGenius AI</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-7">
-            <Link href="#features" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">Features</Link>
-            <Link href="#how-it-works" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">How it works</Link>
-            <Link href="#pricing" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">Pricing</Link>
-            <Link href="/login" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">Sign in</Link>
-            <Link href="/signup" className="inline-flex items-center gap-1.5 rounded-lg bg-[#4f46e5] px-4 py-2 text-sm font-medium text-white hover:bg-[#4338ca] transition-colors">
-              Get started free
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+          <nav className="hidden md:flex items-center gap-7 text-sm text-white/55">
+            <Link href="#features" className="hover:text-white transition-colors">Features</Link>
+            <Link href="#how" className="hover:text-white transition-colors">How it works</Link>
+            <Link href="#pricing" className="hover:text-white transition-colors">Pricing</Link>
           </nav>
 
-          <Link href="/signup" className="md:hidden inline-flex items-center rounded-lg bg-[#4f46e5] px-3 py-1.5 text-sm font-medium text-white">
-            Get started
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link href="/login" className="hidden sm:block text-sm text-white/60 hover:text-white transition-colors px-3 py-1.5">Sign in</Link>
+            <Link href="/signup" className="text-sm font-medium bg-violet-600 hover:bg-violet-500 transition-colors text-white px-4 py-2 rounded-lg shadow-lg shadow-violet-900/40">
+              Get started
+            </Link>
+          </div>
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="mx-auto max-w-5xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3.5 py-1.5 text-xs font-medium text-indigo-700 mb-8">
-            <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
-            AI-Powered Customer Support — Always On
+      {/* ── HERO ── */}
+      <section className="relative pt-40 pb-32 px-6 overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-violet-700/20 rounded-full blur-[120px]" />
+          <div className="absolute top-20 left-1/3 w-[400px] h-[400px] bg-purple-800/10 rounded-full blur-[80px]" />
+        </div>
+
+        <div className="relative max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.15em] uppercase text-violet-400 mb-6 px-3 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10">
+            Conversation intelligence
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#1a1a2e] leading-[1.08] tracking-tight mb-6">
-            Your AI customer
-            <span className="block text-[#4f46e5]">support frontline</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
+            Every customer conversation,{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-300">
+              understood before the next one begins.
+            </span>
           </h1>
 
-          <p className="text-xl text-neutral-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Give Support Genius your business knowledge. It builds a natural-sounding AI agent that speaks with customers, resolves issues, and escalates intelligently — 24/7.
+          <p className="text-lg text-white/55 max-w-2xl mx-auto leading-relaxed mb-10">
+            SupportGenius AI analyses every call your team has, extracts what was promised, what was objected to and what happens next, and writes the follow-up — so no account depends on anyone&apos;s memory.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-14">
-            <Link href="/signup" className="inline-flex items-center gap-2 rounded-xl bg-[#4f46e5] px-7 py-3.5 text-[15px] font-semibold text-white hover:bg-[#4338ca] transition-colors shadow-lg shadow-indigo-200">
-              Build your AI agent — free
-              <ArrowRight className="h-4 w-4" />
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <Link href="/signup" className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 transition-all text-white font-semibold px-6 py-3 rounded-xl shadow-xl shadow-violet-900/50 text-sm">
+              Get started <ChevronRight className="h-4 w-4" />
             </Link>
-            <Link href="#how-it-works" className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-7 py-3.5 text-[15px] font-medium text-neutral-700 hover:bg-neutral-50 transition-colors">
-              See how it works
-              <ChevronRight className="h-4 w-4" />
+            <Link href="/login" className="inline-flex items-center gap-2 border border-white/15 hover:border-white/30 transition-colors text-white/70 hover:text-white font-medium px-6 py-3 rounded-xl text-sm">
+              Sign in
             </Link>
           </div>
 
-          {/* Social proof */}
-          <div className="flex items-center justify-center gap-6 text-sm text-neutral-400">
-            <div className="flex items-center gap-1.5">
-              <div className="flex">
-                {[1,2,3,4,5].map(i => <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />)}
-              </div>
-              <span>4.9/5 from 200+ reviews</span>
-            </div>
-            <div className="h-4 w-px bg-neutral-200" />
-            <span>No credit card required</span>
-            <div className="h-4 w-px bg-neutral-200" />
-            <span>Setup in under 10 minutes</span>
-          </div>
+          <p className="text-xs text-white/30 tracking-wide">Call analysis · Commitment tracking · Follow-up drafting</p>
         </div>
 
-        {/* Dashboard preview */}
-        <div className="mx-auto max-w-6xl mt-16">
-          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-2 shadow-2xl shadow-neutral-200">
-            <div className="rounded-xl bg-white border border-neutral-100 overflow-hidden">
-              {/* Browser bar */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-neutral-100 bg-neutral-50">
-                <div className="flex gap-1.5">
-                  <div className="h-3 w-3 rounded-full bg-red-400" />
-                  <div className="h-3 w-3 rounded-full bg-amber-400" />
-                  <div className="h-3 w-3 rounded-full bg-emerald-400" />
-                </div>
-                <div className="flex-1 mx-4 rounded-md bg-white border border-neutral-200 px-3 py-1 text-xs text-neutral-400">
-                  app.supportgenius.ai/dashboard
-                </div>
+        {/* ── MOCK ANALYSIS CARD ── */}
+        <div className="relative max-w-3xl mx-auto mt-20">
+          <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-violet-500/30 to-transparent pointer-events-none" />
+          <div className="relative rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm overflow-hidden">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-white/[0.06] bg-white/[0.02]">
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-violet-400 animate-pulse" />
+                <span className="text-xs font-medium text-white/60">Call Analysis — Acme Corp / Sarah Chen</span>
               </div>
-              {/* App preview */}
-              <div className="flex h-96">
-                {/* Sidebar */}
-                <div className="w-52 border-r border-neutral-100 bg-[#1a1a2e] flex flex-col p-4 gap-1">
-                  <div className="flex items-center gap-2 mb-4 px-2">
-                    <div className="h-6 w-6 rounded bg-[#4f46e5] flex items-center justify-center">
-                      <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none">
-                        <rect x="2" y="3" width="8" height="1.5" rx="0.75" fill="white"/>
-                        <rect x="2" y="7" width="6" height="1.5" rx="0.75" fill="white"/>
-                        <circle cx="12" cy="11" r="3" fill="white"/>
-                      </svg>
-                    </div>
-                    <span className="text-xs font-bold text-white">Support Genius</span>
+              <span className="text-[10px] text-white/25 italic">Illustrative example</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/[0.04]">
+              {[
+                { label: 'Summary', value: 'Renewal discussion. Customer satisfied with support volume but flagged slow response on P1 incidents. Requested SLA review before signing.' },
+                { label: 'Buyer Intent', value: 'Intent to renew — conditional on revised SLA terms and improved escalation routing.' },
+                { label: 'Sentiment', value: 'Positive overall. Frustration noted specifically around incident response times in Q3.' },
+                { label: 'Objections', value: 'Response SLA for P1 issues. Ticket visibility for their engineering team during incidents.' },
+                { label: 'Commitments', value: 'Send revised SLA draft by Thursday. Schedule technical review with their VP Eng next week.' },
+                { label: 'Competitors Mentioned', value: 'Zendesk — mentioned as alternative being evaluated by their procurement team.' },
+                { label: 'Decision Criteria', value: 'SLA guarantees, escalation transparency, dedicated support contact, pricing per seat.' },
+                { label: 'Recommended Next Action', value: 'Send SLA draft today. Loop in account director before engineering review. Flag renewal risk to CS lead.' },
+              ].map(item => (
+                <div key={item.label} className="bg-[#06060f] p-4">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-violet-400 mb-1.5">{item.label}</div>
+                  <div className="text-sm text-white/70 leading-relaxed">{item.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── OPERATING LOOP ── */}
+      <section className="py-20 px-6 border-y border-white/[0.05]">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/30 mb-8">The SupportGenius loop</p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {['Upload', 'Extract', 'Brief', 'Follow Up', 'Retain', 'Grow'].map((step, i, arr) => (
+              <div key={step} className="flex items-center gap-2">
+                <div className="px-4 py-2 rounded-full bg-white/[0.05] border border-white/10 text-sm font-medium text-white/70 hover:text-white hover:border-violet-500/40 hover:bg-violet-500/10 transition-all cursor-default">
+                  {step}
+                </div>
+                {i < arr.length - 1 && <span className="text-white/20 text-xs">→</span>}
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 text-sm text-white/35 max-w-xl mx-auto">
+            Every stage feeds the next automatically. A commitment made on a call is tracked, followed up on schedule, and visible to the whole team before the next conversation.
+          </p>
+        </div>
+      </section>
+
+      {/* ── EIGHT EXTRACTIONS ── */}
+      <section id="features" className="py-28 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-2xl mb-16">
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-violet-400 mb-4">What it extracts</p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-5">
+              Eight things pulled from every call,{' '}
+              <span className="text-white/50">automatically.</span>
+            </h2>
+            <p className="text-white/50 leading-relaxed">
+              Nobody fills out a form after a conversation. Upload the recording or transcript and the platform does the reading.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.05] rounded-2xl overflow-hidden border border-white/[0.07]">
+            {[
+              { n: '01', label: 'Summary', desc: 'A plain-English account of what was discussed and where the relationship stands.' },
+              { n: '02', label: 'Buyer Intent', desc: 'What the contact is moving toward — renewal, expansion, evaluation, or exit.' },
+              { n: '03', label: 'Sentiment', desc: 'The emotional register of the call and where friction surfaced.' },
+              { n: '04', label: 'Objections', desc: 'Every concern raised, stated or implied, with the context it appeared in.' },
+              { n: '05', label: 'Commitments', desc: 'What your team promised to deliver and by when.' },
+              { n: '06', label: 'Competitors Mentioned', desc: 'Alternatives named on the call and how they were positioned.' },
+              { n: '07', label: 'Decision Criteria', desc: 'What the contact said matters most when evaluating options.' },
+              { n: '08', label: 'Next Action', desc: 'The single most important move — specific, concrete, and ready to act on.' },
+            ].map(item => (
+              <div key={item.n} className="bg-[#06060f] p-6 hover:bg-white/[0.03] transition-colors group">
+                <div className="text-[10px] font-bold tracking-[0.15em] text-violet-500/60 mb-3 group-hover:text-violet-400 transition-colors">{item.n}</div>
+                <div className="text-sm font-semibold text-white mb-2">{item.label}</div>
+                <div className="text-xs text-white/40 leading-relaxed">{item.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRE-CALL BRIEF ── */}
+      <section id="how" className="py-28 px-6 border-t border-white/[0.05]">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-violet-400 mb-4">Before the call</p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-6">
+              Walk in knowing what happened last time.
+            </h2>
+            <p className="text-white/55 leading-relaxed mb-8">
+              The pre-call brief brings together relationship history, past objections, promises already made, a suggested opening and the questions worth asking. Your team arrives prepared, every time — not just when someone remembers to check the notes.
+            </p>
+            <div className="space-y-3">
+              {['Relationship history at a glance', 'Open commitments and past objections', 'Suggested opening and questions', 'Full conversation timeline'].map(item => (
+                <div key={item} className="flex items-center gap-3 text-sm text-white/60">
+                  <div className="h-1.5 w-1.5 rounded-full bg-violet-500 shrink-0" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-violet-600/20 to-transparent pointer-events-none" />
+            <div className="relative rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-5">
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.15em] text-violet-400 font-bold mb-0.5">Pre-Call Brief</div>
+                  <div className="text-sm font-semibold text-white">Marcus Lee — Bright Finance</div>
+                </div>
+                <div className="text-[10px] text-white/25 italic">Illustrative</div>
+              </div>
+              <div className="space-y-4">
+                {[
+                  { label: 'Last call', value: 'Nov 14 · Renewal discussion · 32 min' },
+                  { label: 'Open commitment', value: 'Send updated pricing by Nov 20 (overdue)' },
+                  { label: 'Key objection', value: 'Integration time with their internal CRM' },
+                  { label: 'Suggested opening', value: '"I have the revised pricing ready — wanted to walk through it before we talked about next steps."' },
+                  { label: 'Worth asking', value: 'Has the CRM concern been resolved internally? Who is involved in final sign-off?' },
+                ].map(row => (
+                  <div key={row.label}>
+                    <div className="text-[10px] uppercase tracking-widest text-white/30 mb-0.5">{row.label}</div>
+                    <div className="text-sm text-white/70 leading-snug">{row.value}</div>
                   </div>
-                  {['Overview', 'AI Agents', 'Knowledge', 'Conversations', 'Analytics', 'Team'].map((item, i) => (
-                    <div key={item} className={`flex items-center gap-2.5 px-2 py-1.5 rounded-md text-xs ${i === 0 ? 'bg-[#4f46e5] text-white' : 'text-neutral-400 hover:text-white'}`}>
-                      <div className="h-1.5 w-1.5 rounded-full bg-current opacity-60" />
-                      {item}
-                    </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOLLOW-UP AI ── */}
+      <section className="py-28 px-6 border-t border-white/[0.05]">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="order-2 lg:order-1 relative">
+            <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-violet-600/20 to-transparent pointer-events-none" />
+            <div className="relative rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-5">
+                <div className="text-[10px] uppercase tracking-[0.15em] text-violet-400 font-bold">Follow-Up Draft</div>
+                <div className="text-[10px] text-white/25 italic">Illustrative</div>
+              </div>
+              <div className="text-xs text-white/40 mb-1">To: sarah.chen@acmecorp.com</div>
+              <div className="text-xs text-white/40 mb-4">Subject: SLA draft + next steps</div>
+              <div className="text-sm text-white/65 leading-relaxed space-y-3">
+                <p>Hi Sarah,</p>
+                <p>Following our call today — I&apos;ve attached the revised SLA draft with updated P1 response windows we discussed. I&apos;ve also flagged the incident visibility point for our engineering team to address before your review.</p>
+                <p>Does Thursday at 2pm work for the technical session with your VP Eng? Happy to adjust.</p>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/[0.07]">
+                <div className="text-[10px] text-violet-400/70 uppercase tracking-widest">Written from: Call transcript · Nov 18</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-violet-400 mb-4">After the call</p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-6">
+              The follow-up is written from what was actually said.
+            </h2>
+            <p className="text-white/55 leading-relaxed mb-8">
+              Follow-Up AI decides who needs a message, when it should go, and drafts it from that contact&apos;s own history — not a template. Every recipient gets a message that reflects their conversation, not a broadcast that pretends otherwise.
+            </p>
+            <div className="space-y-3">
+              {['Drafted from the call transcript, not a template', 'Right contact, right time, right message', 'Works across active accounts and dormant ones', 'Each message reflects that account\'s history'].map(item => (
+                <div key={item} className="flex items-center gap-3 text-sm text-white/60">
+                  <div className="h-1.5 w-1.5 rounded-full bg-violet-500 shrink-0" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TEAM MEMORY ── */}
+      <section className="py-28 px-6 border-t border-white/[0.05]">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-violet-400 mb-4">One memory across the team</p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-6">
+            Nothing learned on a call gets lost.
+          </h2>
+          <p className="text-lg text-white/50 leading-relaxed mb-16 max-w-2xl mx-auto">
+            Every analysis, briefing and action plan is saved and searchable, visible to the whole team. New team members walk into a call knowing what happened before. No one needs to ask &quot;who owns this account?&quot;
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { icon: '⟳', label: 'Full history', desc: 'Every call, commitment and briefing — searchable across the whole team.' },
+              { icon: '↗', label: 'Instant onboarding', desc: 'New reps walk in prepared. The account history is already there.' },
+              { icon: '⌖', label: 'Pattern recognition', desc: 'Objections and competitor mentions become trends the team can act on.' },
+            ].map(item => (
+              <div key={item.label} className="rounded-xl border border-white/[0.07] bg-white/[0.03] p-6 text-left hover:border-violet-500/30 hover:bg-violet-500/5 transition-all">
+                <div className="text-2xl mb-4 text-violet-400">{item.icon}</div>
+                <div className="text-sm font-semibold text-white mb-2">{item.label}</div>
+                <div className="text-xs text-white/40 leading-relaxed">{item.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── GOVERNANCE ── */}
+      <section className="py-28 px-6 border-t border-white/[0.05]">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-violet-400 mb-4">Governed by design</p>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-6">
+                Sensitive calls,{' '}
+                <span className="text-white/50">handled with care.</span>
+              </h2>
+              <p className="text-white/55 leading-relaxed">
+                Workspaces are isolated at the database level, access is role-based, and uploaded calls run your workspace only. They are never used to train shared models.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                { icon: Database, title: 'Workspace isolation, enforced in the database', body: 'Row-level security scopes every query to your organisation — access control is not a frontend check that can be bypassed.' },
+                { icon: Users, title: 'Role-based access for the whole team', body: 'Owners, admins and members see the same system with the right level of control for each role.' },
+                { icon: Shield, title: 'Your data stays yours', body: 'Uploaded calls and transcripts are used to run your workspace and nothing else. Never to train shared models.' },
+              ].map(item => (
+                <div key={item.title} className="flex gap-4 p-5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-violet-500/20 transition-colors">
+                  <div className="h-9 w-9 rounded-lg bg-violet-500/10 border border-violet-500/20 flex items-center justify-center shrink-0">
+                    <item.icon className="h-4 w-4 text-violet-400" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-white mb-1">{item.title}</div>
+                    <div className="text-xs text-white/45 leading-relaxed">{item.body}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRICING ── */}
+      <section id="pricing" className="py-28 px-6 border-t border-white/[0.05]">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-violet-400 mb-4">Pricing</p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Credits for the work you run.</h2>
+            <p className="text-white/45 max-w-xl mx-auto text-sm leading-relaxed">
+              Every plan includes every module. The only difference is the monthly credit allowance. Credits refresh each billing cycle. Unlimited team members on all plans.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                name: 'Free',
+                price: '$0',
+                period: 'forever',
+                credits: '200 credits / mo',
+                features: ['All modules included', '1 AI agent', '100 conversations / mo', 'Community support'],
+                cta: 'Get started',
+                href: '/signup',
+                featured: false,
+              },
+              {
+                name: 'Professional',
+                price: '$57',
+                period: 'per month',
+                credits: '4,000 credits / mo',
+                features: ['All modules included', '3 AI agents', '1,000 conversations / mo', 'Follow-up campaigns', 'Priority support'],
+                cta: 'Get started',
+                href: process.env.NEXT_PUBLIC_STARTER_PAYMENT_LINK || '/signup',
+                featured: true,
+              },
+              {
+                name: 'Business',
+                price: '$97',
+                period: 'per month',
+                credits: '11,000 credits / mo',
+                features: ['All modules included', '10 AI agents', '5,000 conversations / mo', 'Daily briefings', 'Dedicated support'],
+                cta: 'Get started',
+                href: process.env.NEXT_PUBLIC_PRO_PAYMENT_LINK || '/signup',
+                featured: false,
+              },
+            ].map(plan => (
+              <div key={plan.name} className={`relative rounded-2xl border p-7 flex flex-col ${plan.featured ? 'border-violet-500/50 bg-violet-600/10' : 'border-white/[0.07] bg-white/[0.02]'}`}>
+                {plan.featured && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-violet-600 text-white text-[10px] font-bold tracking-wide uppercase">
+                    Most popular
+                  </div>
+                )}
+                <div className="mb-6">
+                  <div className="text-xs font-bold uppercase tracking-[0.15em] text-white/40 mb-3">{plan.name}</div>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-4xl font-bold text-white">{plan.price}</span>
+                    <span className="text-sm text-white/35">{plan.period}</span>
+                  </div>
+                  <div className="mt-2 text-xs text-violet-400/80">{plan.credits}</div>
+                </div>
+
+                <ul className="space-y-2.5 mb-8 flex-1">
+                  {plan.features.map(f => (
+                    <li key={f} className="flex items-center gap-2.5 text-sm text-white/60">
+                      <div className="h-1.5 w-1.5 rounded-full bg-violet-500 shrink-0" />
+                      {f}
+                    </li>
                   ))}
-                </div>
-                {/* Main content */}
-                <div className="flex-1 p-5 bg-neutral-50">
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <div className="text-sm font-semibold text-neutral-900">Overview</div>
-                      <div className="text-xs text-neutral-500">Last 30 days</div>
-                    </div>
-                    <div className="h-7 w-24 rounded-md bg-[#4f46e5] opacity-90" />
-                  </div>
-                  <div className="grid grid-cols-4 gap-3 mb-4">
-                    {[
-                      { label: 'Total Conversations', val: '2,847', chg: '+18%' },
-                      { label: 'Resolved by AI', val: '91.4%', chg: '+3.2%' },
-                      { label: 'Avg. Handle Time', val: '2m 14s', chg: '-22%' },
-                      { label: 'CSAT Score', val: '4.8/5', chg: '+0.4' },
-                    ].map(s => (
-                      <div key={s.label} className="rounded-lg bg-white border border-neutral-100 p-3">
-                        <div className="text-xs text-neutral-500 mb-1">{s.label}</div>
-                        <div className="text-base font-bold text-neutral-900">{s.val}</div>
-                        <div className="text-xs text-emerald-600 font-medium mt-0.5">{s.chg}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="col-span-2 rounded-lg bg-white border border-neutral-100 p-3 h-32">
-                      <div className="text-xs font-medium text-neutral-700 mb-2">Conversation volume</div>
-                      <div className="flex items-end gap-1 h-20">
-                        {[40,65,50,80,70,90,85,95,75,88,92,78].map((h, i) => (
-                          <div key={i} className="flex-1 rounded-t" style={{ height: `${h}%`, background: `rgba(79,70,229,${0.3 + i * 0.05})` }} />
-                        ))}
-                      </div>
-                    </div>
-                    <div className="rounded-lg bg-white border border-neutral-100 p-3 h-32">
-                      <div className="text-xs font-medium text-neutral-700 mb-2">Top intents</div>
-                      {['Order status', 'Refunds', 'Account help', 'Technical'].map((intent, i) => (
-                        <div key={intent} className="flex items-center gap-2 py-0.5">
-                          <div className="h-1.5 flex-1 rounded-full bg-neutral-100 overflow-hidden">
-                            <div className="h-full rounded-full bg-[#4f46e5]" style={{ width: `${90 - i * 18}%` }} />
-                          </div>
-                          <span className="text-xs text-neutral-500 w-12 text-right">{90-i*18}%</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                </ul>
 
-      {/* Logos */}
-      <section className="py-14 border-y border-neutral-100">
-        <div className="mx-auto max-w-5xl px-6">
-          <p className="text-center text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-8">Trusted by customer support teams at</p>
-          <div className="flex flex-wrap items-center justify-center gap-10 opacity-40">
-            {['Acme Corp', 'Stellar Tech', 'Nova Retail', 'Apex Health', 'Quantum SaaS', 'Meridian Bank'].map(name => (
-              <span key={name} className="text-sm font-bold text-neutral-500 tracking-tight">{name}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section id="features" className="py-24 px-6">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">Everything your support team needs</h2>
-            <p className="text-lg text-neutral-500 max-w-xl mx-auto">A complete platform for building, deploying, and improving your AI customer support frontline.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Brain,
-                title: 'Smart Knowledge Setup',
-                desc: 'Add your website, PDFs, FAQs, and policies. Support Genius processes and organizes everything automatically.',
-                color: 'bg-indigo-50 text-indigo-600',
-              },
-              {
-                icon: Mic,
-                title: 'Human-Like Voice Agent',
-                desc: 'Fluid voice conversations with natural pacing, interruptions, and follow-ups — not a robotic IVR system.',
-                color: 'bg-violet-50 text-violet-600',
-              },
-              {
-                icon: Globe,
-                title: 'Shareable Call Link',
-                desc: 'Every business gets a branded voice support URL. Customers tap Start Call and instantly speak with your agent.',
-                color: 'bg-blue-50 text-blue-600',
-              },
-              {
-                icon: MessageSquare,
-                title: 'Website Widget',
-                desc: 'Embed your AI agent on your website for both text and voice support with a single line of code.',
-                color: 'bg-emerald-50 text-emerald-600',
-              },
-              {
-                icon: Users,
-                title: 'Customer Memory',
-                desc: 'Remembers past conversations, resolutions, and preferences so customers never repeat themselves.',
-                color: 'bg-amber-50 text-amber-600',
-              },
-              {
-                icon: Zap,
-                title: 'Autonomous Resolution',
-                desc: 'Check orders, create cases, initiate refunds — the agent performs approved actions automatically.',
-                color: 'bg-rose-50 text-rose-600',
-              },
-              {
-                icon: PhoneCall,
-                title: 'Smart Escalation',
-                desc: 'Recognize when humans are needed and hand off with full context — no customer starts over.',
-                color: 'bg-sky-50 text-sky-600',
-              },
-              {
-                icon: BarChart3,
-                title: 'Support Intelligence',
-                desc: 'Identify recurring issues, frustration trends, and knowledge gaps across all your conversations.',
-                color: 'bg-purple-50 text-purple-600',
-              },
-              {
-                icon: Shield,
-                title: 'Continuous Improvement',
-                desc: 'AI analyzes failed conversations and recommends knowledge updates to make your agent smarter.',
-                color: 'bg-teal-50 text-teal-600',
-              },
-            ].map(f => (
-              <div key={f.title} className="rounded-xl border border-neutral-100 p-6 hover:border-neutral-200 hover:shadow-sm transition-all">
-                <div className={`inline-flex h-10 w-10 items-center justify-center rounded-lg ${f.color} mb-4`}>
-                  <f.icon className="h-5 w-5" />
-                </div>
-                <h3 className="text-base font-semibold text-neutral-900 mb-2">{f.title}</h3>
-                <p className="text-sm text-neutral-500 leading-relaxed">{f.desc}</p>
+                <Link href={plan.href} className={`w-full text-center text-sm font-semibold py-3 rounded-xl transition-all ${plan.featured ? 'bg-violet-600 hover:bg-violet-500 text-white shadow-lg shadow-violet-900/40' : 'border border-white/15 hover:border-white/30 text-white/70 hover:text-white'}`}>
+                  {plan.cta}
+                </Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How it works */}
-      <section id="how-it-works" className="py-24 px-6 bg-neutral-50">
-        <div className="mx-auto max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">From knowledge to live support in minutes</h2>
-            <p className="text-lg text-neutral-500">No engineering required. No weeks of configuration.</p>
+      {/* ── CLOSING CTA ── */}
+      <section className="py-28 px-6 border-t border-white/[0.05]">
+        <div className="max-w-2xl mx-auto text-center relative">
+          <div className="absolute inset-0 -top-20 pointer-events-none">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-violet-700/15 rounded-full blur-[80px]" />
           </div>
-
-          <div className="space-y-6">
-            {[
-              {
-                step: '01',
-                title: 'Share your business knowledge',
-                desc: 'Add your website URL, upload PDFs and documents, paste FAQs, or type in your policies. Support Genius automatically processes and indexes everything.',
-                highlights: ['Website scraping', 'PDF/document upload', 'FAQ import', 'Policy management'],
-              },
-              {
-                step: '02',
-                title: 'Configure your AI agent',
-                desc: 'Set your agent\'s name, persona, greeting, and escalation rules. Define what actions it can take, what it should never say, and when to involve a human.',
-                highlights: ['Custom persona', 'Escalation rules', 'Approved actions', 'Response style'],
-              },
-              {
-                step: '03',
-                title: 'Test before you publish',
-                desc: 'Use the Agent Testing Lab to simulate customer scenarios, test difficult questions, and identify weaknesses — before any real customer speaks with it.',
-                highlights: ['Voice testing', 'Scenario simulation', 'Weakness identification', 'Confidence scoring'],
-              },
-              {
-                step: '04',
-                title: 'Deploy your support link',
-                desc: 'Publish your branded support link and embed your widget. Customers tap once and speak with your AI agent — available 24/7, instantly.',
-                highlights: ['Branded voice link', 'Embeddable widget', '24/7 availability', 'No downloads needed'],
-              },
-            ].map((s, i) => (
-              <div key={s.step} className="flex gap-6 rounded-2xl bg-white border border-neutral-100 p-7">
-                <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-xl bg-[#4f46e5] text-white font-bold text-lg">
-                  {s.step}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-neutral-900 mb-2">{s.title}</h3>
-                  <p className="text-neutral-500 text-sm leading-relaxed mb-4">{s.desc}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {s.highlights.map(h => (
-                      <span key={h} className="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700">
-                        <CheckCircle className="h-3 w-3" />
-                        {h}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section id="pricing" className="py-24 px-6">
-        <div className="mx-auto max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">Simple, predictable pricing</h2>
-            <p className="text-lg text-neutral-500">Everything included. No per-conversation fees. No surprises.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {/* Starter */}
-            <div className="rounded-2xl border border-neutral-200 p-8">
-              <div className="mb-6">
-                <div className="text-sm font-semibold text-neutral-500 mb-1">Starter</div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-bold text-neutral-900">$57</span>
-                  <span className="text-neutral-500">/month</span>
-                </div>
-                <p className="text-sm text-neutral-500 mt-2">Perfect for small businesses getting started with AI support.</p>
-              </div>
-              <div className="space-y-3 mb-8">
-                {['3 AI support agents', '1,000 conversations/month', 'Voice + widget support', 'Knowledge base (5 sources)', 'Smart escalation', 'Conversation analytics', 'Email support'].map(f => (
-                  <div key={f} className="flex items-center gap-2.5 text-sm text-neutral-700">
-                    <CheckCircle className="h-4 w-4 text-emerald-500 flex-shrink-0" />
-                    {f}
-                  </div>
-                ))}
-              </div>
-              <Link href="/signup" className="block w-full rounded-lg border border-neutral-200 py-3 text-center text-sm font-semibold text-neutral-900 hover:bg-neutral-50 transition-colors">
-                Get started with Starter
-              </Link>
-            </div>
-
-            {/* Pro */}
-            <div className="rounded-2xl border-2 border-[#4f46e5] p-8 relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="inline-flex items-center rounded-full bg-[#4f46e5] px-3 py-0.5 text-xs font-semibold text-white">Most Popular</span>
-              </div>
-              <div className="mb-6">
-                <div className="text-sm font-semibold text-indigo-600 mb-1">Pro</div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-bold text-neutral-900">$97</span>
-                  <span className="text-neutral-500">/month</span>
-                </div>
-                <p className="text-sm text-neutral-500 mt-2">For growing businesses that need the full platform.</p>
-              </div>
-              <div className="space-y-3 mb-8">
-                {['10 AI support agents', '5,000 conversations/month', 'Voice + widget + phone support', 'Unlimited knowledge sources', 'Autonomous resolution actions', 'Advanced analytics & reports', 'Customer memory & history', 'AI continuous improvement', 'Priority support', 'Team management (unlimited)'].map(f => (
-                  <div key={f} className="flex items-center gap-2.5 text-sm text-neutral-700">
-                    <CheckCircle className="h-4 w-4 text-[#4f46e5] flex-shrink-0" />
-                    {f}
-                  </div>
-                ))}
-              </div>
-              <Link href="/signup" className="block w-full rounded-lg bg-[#4f46e5] py-3 text-center text-sm font-semibold text-white hover:bg-[#4338ca] transition-colors">
-                Get started with Pro
-              </Link>
-            </div>
-          </div>
-
-          <p className="text-center text-sm text-neutral-400 mt-8">
-            Both plans include a 14-day free trial. No credit card required to start.
+          <h2 className="relative text-3xl sm:text-4xl font-bold tracking-tight mb-6">
+            Turn every conversation into the next right move.
+          </h2>
+          <p className="relative text-white/45 mb-10 leading-relaxed">
+            The platform reads the call, tracks the commitment, writes the follow-up, and briefs the team — before the next one begins.
           </p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 px-6 bg-[#1a1a2e]">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">Ready to build your AI support frontline?</h2>
-          <p className="text-lg text-neutral-400 mb-10">Join hundreds of businesses that have transformed their customer support with Support Genius AI.</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/signup" className="inline-flex items-center gap-2 rounded-xl bg-[#4f46e5] px-7 py-3.5 text-[15px] font-semibold text-white hover:bg-[#4338ca] transition-colors">
-              Start building for free
-              <ArrowRight className="h-4 w-4" />
+          <div className="relative flex items-center justify-center gap-4">
+            <Link href="/signup" className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 transition-all text-white font-semibold px-7 py-3.5 rounded-xl shadow-xl shadow-violet-900/50 text-sm">
+              Get started <ChevronRight className="h-4 w-4" />
             </Link>
-            <Link href="/login" className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-7 py-3.5 text-[15px] font-medium text-white hover:bg-white/10 transition-colors">
-              Sign in to your account
+            <Link href="/login" className="inline-flex items-center gap-2 border border-white/15 hover:border-white/30 transition-colors text-white/60 hover:text-white font-medium px-7 py-3.5 rounded-xl text-sm">
+              Sign in
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-10 border-t border-neutral-100 px-6">
-        <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="h-6 w-6 rounded bg-[#4f46e5] flex items-center justify-center">
-              <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none">
-                <rect x="2" y="3" width="8" height="1.5" rx="0.75" fill="white"/>
-                <rect x="2" y="7" width="6" height="1.5" rx="0.75" fill="white"/>
-                <circle cx="12" cy="11" r="3" fill="white"/>
-              </svg>
+      {/* ── FOOTER ── */}
+      <footer className="border-t border-white/[0.05] py-12 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 mb-10">
+            <Link href="/" className="flex items-center gap-2.5">
+              <div className="h-7 w-7 rounded-lg bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center shadow-lg shadow-purple-900/50">
+                <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4">
+                  <path d="M4 5h8M4 9h6M13 14a3 3 0 100-6 3 3 0 000 6z" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+                  <path d="M15.5 16.5l-1.5-1.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <span className="text-sm font-semibold text-white/80">SupportGenius AI</span>
+            </Link>
+
+            <div className="flex flex-wrap gap-6 text-xs text-white/35">
+              <Link href="#features" className="hover:text-white/70 transition-colors">Features</Link>
+              <Link href="#how" className="hover:text-white/70 transition-colors">How it works</Link>
+              <Link href="#pricing" className="hover:text-white/70 transition-colors">Pricing</Link>
+              <Link href="/dashboard" className="hover:text-white/70 transition-colors">Sign in</Link>
             </div>
-            <span className="text-sm font-bold text-[#1a1a2e]">Support Genius AI</span>
           </div>
-          <p className="text-sm text-neutral-400">© {new Date().getFullYear()} Support Genius AI. All rights reserved.</p>
-          <div className="flex gap-5">
-            <Link href="/privacy" className="text-sm text-neutral-400 hover:text-neutral-700">Privacy</Link>
-            <Link href="/terms" className="text-sm text-neutral-400 hover:text-neutral-700">Terms</Link>
-            <Link href="/contact" className="text-sm text-neutral-400 hover:text-neutral-700">Contact</Link>
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8 border-t border-white/[0.05]">
+            <p className="text-xs text-white/25">
+              © {new Date().getFullYear()} SupportGenius AI. All rights reserved.
+              <span className="mx-2">·</span>
+              <a href="mailto:hello@supportgeniusai.online" className="hover:text-white/50 transition-colors">hello@supportgeniusai.online</a>
+            </p>
+            <div className="flex gap-5 text-xs text-white/25">
+              <Link href="/privacy" className="hover:text-white/50 transition-colors">Privacy</Link>
+              <Link href="/terms" className="hover:text-white/50 transition-colors">Terms</Link>
+              <Link href="/security" className="hover:text-white/50 transition-colors">Security</Link>
+            </div>
           </div>
         </div>
       </footer>

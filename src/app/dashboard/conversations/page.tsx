@@ -8,7 +8,7 @@ import { formatRelativeTime, formatDuration } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Topbar } from '@/components/layout/topbar'
+import Topbar from '@/components/layout/topbar'
 import { MessageSquare, Mic, Phone, Search, Filter, User, Clock, Bot, ArrowRight } from 'lucide-react'
 
 export default function ConversationsPage() {

@@ -12,7 +12,7 @@ import { Switch } from '@/components/ui/switch'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Topbar } from '@/components/layout/topbar'
+import Topbar from '@/components/layout/topbar'
 import Link from 'next/link'
 
 export default function AgentDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -368,3 +368,4 @@ export default function AgentDetailPage({ params }: { params: Promise<{ id: stri
     </div>
   )
 }
+

@@ -7,7 +7,7 @@ import { formatRelativeTime, formatDate, formatDuration } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Topbar } from '@/components/layout/topbar'
+import Topbar from '@/components/layout/topbar'
 import { ArrowLeft, Bot, User, Clock, Mic, MessageSquare, AlertTriangle, CheckCircle, Brain } from 'lucide-react'
 import { toast } from 'sonner'
 
@@ -275,3 +275,4 @@ export default function ConversationDetailPage({ params }: { params: Promise<{ i
     </div>
   )
 }
+

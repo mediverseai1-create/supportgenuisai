@@ -1,68 +1,88 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Bell, Search, LogOut, User, Settings, ChevronDown } from 'lucide-react'
+import { Bell, LogOut, Settings, User, ChevronDown } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import Link from 'next/link'
+import { toast } from 'sonner'
 
 interface TopbarProps {
   title: string
-  userName: string
-  userEmail: string
+  subtitle?: string
+  userEmail?: string
+  userName?: string
 }
 
-export function Topbar({ title, userName, userEmail }: TopbarProps) {
+export default function Topbar({ title, subtitle, userEmail, userName }: TopbarProps) {
+  const [open, setOpen] = useState(false)
   const router = useRouter()
   const supabase = createClient()
-  const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
 
-  async function handleSignOut() {
+  async function signOut() {
     await supabase.auth.signOut()
+    toast.success('Signed out')
     router.push('/login')
     router.refresh()
   }
 
   return (
-    <header className="h-14 border-b border-neutral-100 bg-white flex items-center justify-between px-6 flex-shrink-0">
-      <h1 className="text-base font-semibold text-neutral-900">{title}</h1>
+    <header className="h-16 flex items-center justify-between px-6 border-b border-white/[0.06] bg-[#08080f]/95 backdrop-blur-sm sticky top-0 z-30">
+      <div>
+        <h1 className="text-[15px] font-semibold text-white leading-tight">{title}</h1>
+        {subtitle && <p className="text-xs text-white/35 mt-0.5">{subtitle}</p>}
+      </div>
 
       <div className="flex items-center gap-2">
         {/* Notifications */}
-        <button className="relative h-8 w-8 flex items-center justify-center rounded-lg hover:bg-neutral-100 transition-colors">
-          <Bell className="h-4 w-4 text-neutral-500" />
-          <span className="absolute top-1.5 right-1.5 h-1.5 w-1.5 rounded-full bg-[#4f46e5]" />
+        <button className="h-8 w-8 rounded-lg flex items-center justify-center text-white/35 hover:text-white/70 hover:bg-white/[0.05] transition-colors relative">
+          <Bell className="h-4 w-4" />
         </button>
 
         {/* User menu */}
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button className="flex items-center gap-2 rounded-lg px-2 py-1.5 hover:bg-neutral-100 transition-colors">
-              <Avatar className="h-6 w-6">
-                <AvatarFallback className="text-[10px] bg-[#4f46e5] text-white">{initials}</AvatarFallback>
-              </Avatar>
-              <span className="text-sm font-medium text-neutral-700 hidden sm:block">{userName.split(' ')[0]}</span>
-              <ChevronDown className="h-3.5 w-3.5 text-neutral-400" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-48">
-            <DropdownMenuLabel className="font-normal">
-              <div className="text-xs font-semibold text-neutral-900">{userName}</div>
-              <div className="text-xs text-neutral-500 truncate">{userEmail}</div>
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem asChild>
-              <Link href="/dashboard/settings">
-                <Settings className="h-4 w-4" /> Settings
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleSignOut} className="text-red-600 focus:text-red-600 focus:bg-red-50">
-              <LogOut className="h-4 w-4" /> Sign out
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="relative">
+          <button
+            onClick={() => setOpen(!open)}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-white/[0.05] transition-colors"
+          >
+            <div className="h-6 w-6 rounded-full bg-violet-600/30 border border-violet-500/30 flex items-center justify-center text-[10px] font-bold text-violet-300">
+              {userName?.[0]?.toUpperCase() || userEmail?.[0]?.toUpperCase() || 'U'}
+            </div>
+            <span className="text-xs text-white/60 hidden sm:block max-w-[100px] truncate">{userName || userEmail}</span>
+            <ChevronDown className="h-3 w-3 text-white/30" />
+          </button>
+
+          {open && (
+            <>
+              <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
+              <div className="absolute right-0 top-full mt-1.5 w-52 rounded-xl border border-white/10 bg-[#0d0d1a] shadow-2xl shadow-black/60 z-20 overflow-hidden">
+                <div className="px-4 py-3 border-b border-white/[0.06]">
+                  <div className="text-xs font-medium text-white truncate">{userName || 'User'}</div>
+                  <div className="text-[10px] text-white/35 truncate mt-0.5">{userEmail}</div>
+                </div>
+                <div className="p-1.5">
+                  <button
+                    onClick={() => { setOpen(false); router.push('/dashboard/settings') }}
+                    className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs text-white/55 hover:text-white hover:bg-white/[0.05] transition-colors text-left"
+                  >
+                    <Settings className="h-3.5 w-3.5" /> Settings
+                  </button>
+                  <button
+                    onClick={() => { setOpen(false); router.push('/dashboard/settings') }}
+                    className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs text-white/55 hover:text-white hover:bg-white/[0.05] transition-colors text-left"
+                  >
+                    <User className="h-3.5 w-3.5" /> Profile
+                  </button>
+                  <div className="border-t border-white/[0.05] my-1.5" />
+                  <button
+                    onClick={signOut}
+                    className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs text-red-400/70 hover:text-red-400 hover:bg-red-500/10 transition-colors text-left"
+                  >
+                    <LogOut className="h-3.5 w-3.5" /> Sign out
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </header>
   )
